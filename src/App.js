@@ -1,14 +1,19 @@
-import Header from './components/header/header';
-import Hero from './components/hero/hero';
-import MainSection from './components/main-section/main-section';
+import {Routes, Route} from 'react-router-dom';
+import HomePage from './components/home-page';
+import NotFound from './components/not-found';
+import Shop from './components/pages/shop/shop';
+import SingleProduct from './components/single-product/single-product';
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Hero/>
-      <MainSection/>
+      <Routes>
+        <Route path='/' element={<HomePage/>}></Route>
+        <Route path='/shop' element={<Shop/>}></Route>
+        <Route path='/product/:id' element={<SingleProduct/>} ></Route> 
+        <Route path='*' element={<NotFound/>}></Route>
+      </Routes>
     </div>
   );
 }
